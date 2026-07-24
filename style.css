@@ -818,8 +818,8 @@ input {
 
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
 }
 
 /* ---------- Product Card ---------- */
@@ -841,7 +841,7 @@ input {
 
 .product-card-image {
     position: relative;
-    height: 200px;
+    height: 150px;
     overflow: hidden;
     background: var(--light-gray);
 }
@@ -2098,8 +2098,34 @@ input {
     .category-icon { width: 48px; height: 48px; font-size: 1.1rem; }
     
     .menu-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .product-card-image {
+        height: 120px;
+    }
+
+    .product-card-body {
+        padding: 10px;
+    }
+
+    .product-card-name {
+        font-size: 0.85rem;
+    }
+
+    .product-card-price {
+        font-size: 1.05rem;
+    }
+
+    .btn-add-cart, .btn-whatsapp-order {
+        font-size: 0.78rem;
+        padding: 8px 10px;
+    }
+
+    .option-chip {
+        font-size: 0.72rem;
+        padding: 4px 10px;
     }
     
     .features-stats {

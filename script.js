@@ -52,7 +52,7 @@ const WHATSAPP_DISPLAY = '0788496859';
 
 // ─── State ───
 let cart = JSON.parse(localStorage.getItem('shawarmaArabCart')) || [];
-let currentFilter = 'all';
+let currentFilter = 'shawarma';
 
 // ─── DOM Ready ───
 document.addEventListener('DOMContentLoaded', () => {
@@ -145,7 +145,7 @@ function initHeroParticles() {
 }
 
 // ─── Render Menu ───
-function renderMenu(filter = 'all') {
+function renderMenu(filter = 'shawarma') {
     const grid = document.getElementById('menu-grid');
     const items = filter === 'all' ? menuItems : menuItems.filter(i => i.category === filter);
 
@@ -385,7 +385,7 @@ function renderCart() {
         const optionText = item.option ? `<div class="cart-item-option">${item.option}</div>` : '';
         html += `
             <div class="cart-item" style="animation-delay: ${idx * 0.05}s">
-                <img src="assets/logo.png" alt="${item.name}" class="cart-item-image">
+                <img src="assets/logo.png" alt="${item.name}" class="cart-item-image" loading="lazy">
                 <div class="cart-item-info">
                     <div class="cart-item-name">${item.name}</div>
                     ${optionText}
@@ -482,7 +482,7 @@ function initSearch() {
         } else {
             results.innerHTML = found.map(i => `
                 <div class="search-result-item" data-id="${i.id}">
-                    <img src="assets/logo.png" alt="${i.name}">
+                    <img src="assets/logo.png" alt="${i.name}" loading="lazy">
                     <div class="search-result-info">
                         <h4>${i.name}</h4>
                         <span>${i.price} د.أ - ${i.categoryName}</span>
