@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="شاورما عرب - أشهى المأكولات العربية في الرمثا، الأردن. شاورما، بروستد، فروج، سناكات والمزيد. اطلب الآن!">
+    <meta name="keywords" content="شاورما عرب, شاورما الرمثا, مطعم الرمثا, بروستد, فروج, سناكات, الأردن">
+    <meta name="author" content="شاورما عرب">
+    <meta name="theme-color" content="#FF8C00">
+    <meta property="og:title" content="شاورما عرب - أشهى المأكولات العربية">
+    <meta property="og:description" content="أشهى المأكولات العربية في الرمثا، الأردن">
+    <meta property="og:type" content="website">
+    <title>شاورما عرب | أشهى المأكولات العربية في الرمثا</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+</head>
+<body>
+
+<!-- Loading Screen -->
+<div id="loading-screen" class="loading-screen">
+    <div class="loading-content">
+        <img src="assets/logo.png" alt="شاورما عرب" class="loading-logo">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">جاري التحميل...</p>
+    </div>
+</div>
+
+<!-- Back to Top -->
+<button id="back-to-top" class="back-to-top" aria-label="العودة للأعلى">
+    <i class="fas fa-chevron-up"></i>
+</button>
+
+<!-- Floating Actions -->
+<a href="https://wa.me/962788496859" class="floating-whatsapp" aria-label="تواصل عبر واتساب" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i>
+</a>
+<a href="tel:0799580888" class="floating-phone" aria-label="اتصل بنا">
+    <i class="fas fa-phone"></i>
+</a>
+
+<!-- Navigation -->
+<nav id="navbar" class="navbar">
+    <div class="nav-container">
+        <a href="#home" class="nav-logo">
+            <img src="assets/logo.png" alt="شاورما عرب" class="nav-logo-img">
+            <span class="nav-logo-text">شاورما عرب</span>
+        </a>
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="#home" class="nav-link active">الرئيسية</a></li>
+            <li><a href="#menu" class="nav-link">المنيو</a></li>
+            <li><a href="#about" class="nav-link">من نحن</a></li>
+            <li><a href="#contact" class="nav-link">تواصل معنا</a></li>
+            <li>
+                <a href="#cart-section" class="nav-link cart-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="nav-cart-count">0</span>
+                    السلة
+                </a>
+            </li>
+        </ul>
+        <div class="nav-actions">
+            <a href="#cart-section" class="nav-cart-btn" aria-label="السلة">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="nav-cart-count-2">0</span>
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-bg" style="background-image: url('assets/hero.jpg');"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" id="hero-particles"></div>
+    <div class="hero-content">
+        <div class="hero-logo-wrapper">
+            <img src="assets/logo.png" alt="شاورما عرب" class="hero-logo">
+        </div>
+        <h1 class="hero-title">شاورما عرب</h1>
+        <p class="hero-subtitle">أشهى المأكولات في قلب الرمثا</p>
+        <p class="hero-description">نكهات أصيلة بلمسة عصرية، جودة لا تُضاهى وخدمة سريعة</p>
+        <a href="#menu" class="hero-cta">
+            <span>اطلب الآن</span>
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </div>
+    <div class="hero-scroll">
+        <a href="#search-section" aria-label="اكتشف المنيو">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- Search Section -->
+<section id="search-section" class="search-section">
+    <div class="container">
+        <h2 class="section-title">ابحث عن طعامك المفضل</h2>
+        <div class="search-wrapper">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="search-input" class="search-input" placeholder="اكتب اسم المنتج..." autocomplete="off">
+            <button class="search-clear" id="search-clear" style="display:none;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="search-results" class="search-results"></div>
+    </div>
+</section>
+
+<!-- Menu Categories -->
+<section id="categories" class="categories-section">
+    <div class="container">
+        <h2 class="section-title">تصفح المنيو</h2>
+        <p class="section-subtitle">اختر من تشكيلتنا المتنوعة من الأطباق الشهية</p>
+        <div class="categories-grid">
+            <div class="category-card" data-category="shawarma">
+                <div class="category-icon"><i class="fas fa-utensils"></i></div>
+                <h3>شاورما</h3>
+            </div>
+            <div class="category-card" data-category="broasted">
+                <div class="category-icon"><i class="fas fa-drumstick-bite"></i></div>
+                <h3>بروستد</h3>
+            </div>
+            <div class="category-card" data-category="froj">
+                <div class="category-icon"><i class="fas fa-fire"></i></div>
+                <h3>فروج</h3>
+            </div>
+            <div class="category-card" data-category="snacks">
+                <div class="category-icon"><i class="fas fa-burger"></i></div>
+                <h3>سناكات</h3>
+            </div>
+            <div class="category-card" data-category="salads">
+                <div class="category-icon"><i class="fas fa-leaf"></i></div>
+                <h3>سلطات</h3>
+            </div>
+            <div class="category-card" data-category="sides">
+                <div class="category-icon"><i class="fas fa-bowl-food"></i></div>
+                <h3>مقبلات وإضافات</h3>
+            </div>
+            <div class="category-card" data-category="drinks">
+                <div class="category-icon"><i class="fas fa-glass-water"></i></div>
+                <h3>عصائر</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Menu Section -->
+<section id="menu" class="menu-section">
+    <div class="container">
+        <h2 class="section-title">المنيو</h2>
+        <p class="section-subtitle">جميع المنتجات بسعر ٢ دينار فقط</p>
+
+        <!-- Category Tabs -->
+        <div class="menu-tabs">
+            <button class="menu-tab active" data-filter="all">الكل</button>
+            <button class="menu-tab" data-filter="shawarma">شاورما</button>
+            <button class="menu-tab" data-filter="broasted">بروستد</button>
+            <button class="menu-tab" data-filter="froj">فروج</button>
+            <button class="menu-tab" data-filter="snacks">سناكات</button>
+            <button class="menu-tab" data-filter="salads">سلطات</button>
+            <button class="menu-tab" data-filter="sides">مقبلات وإضافات</button>
+            <button class="menu-tab" data-filter="drinks">عصائر</button>
+        </div>
+
+        <!-- Menu Grid -->
+        <div class="menu-grid" id="menu-grid">
+            <!-- Items are rendered by JS -->
+        </div>
+    </div>
+</section>
+
+<!-- Cart Section -->
+<section id="cart-section" class="cart-section">
+    <div class="container">
+        <h2 class="section-title">سلة المشتريات</h2>
+        <div class="cart-wrapper">
+            <div class="cart-items" id="cart-items">
+                <div class="cart-empty" id="cart-empty">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>سلتك فارغة</p>
+                    <a href="#menu" class="btn-primary">أضف منتجات</a>
+                </div>
+            </div>
+            <div class="cart-summary" id="cart-summary" style="display:none;">
+                <div class="cart-summary-row">
+                    <span>المجموع الفرعي</span>
+                    <span id="cart-subtotal">0 د.أ</span>
+                </div>
+                <div class="cart-summary-row cart-total">
+                    <span>المجموع الكلي</span>
+                    <span id="cart-total">0 د.أ</span>
+                </div>
+                <button class="btn-checkout" id="btn-checkout">
+                    <i class="fas fa-credit-card"></i>
+                    إتمام الطلب
+                </button>
+                <button class="btn-clear-cart" id="btn-clear-cart">
+                    <i class="fas fa-trash"></i>
+                    تفريغ السلة
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Checkout Modal -->
+<div class="modal-overlay" id="checkout-modal">
+    <div class="modal-content checkout-modal-content">
+        <button class="modal-close" id="modal-close">&times;</button>
+        <h2>إتمام الطلب</h2>
+        <div class="checkout-order-summary" id="checkout-order-summary"></div>
+        <form id="checkout-form" class="checkout-form">
+            <div class="form-group">
+                <label for="customer-name">الاسم الكامل</label>
+                <input type="text" id="customer-name" required placeholder="أدخل اسمك الكامل">
+            </div>
+            <div class="form-group">
+                <label for="customer-phone">رقم الهاتف</label>
+                <input type="tel" id="customer-phone" required placeholder="07XXXXXXXX">
+            </div>
+            <div class="form-group">
+                <label for="customer-location">الموقع داخل الرمثا</label>
+                <input type="text" id="customer-location" required placeholder="الحي، الشارع، landmarks...">
+            </div>
+            <button type="submit" class="btn-submit-order">
+                <i class="fab fa-whatsapp"></i>
+                إرسال الطلب عبر واتساب
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- About Section -->
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-content">
+                <h2 class="section-title text-right">من نحن</h2>
+                <p class="about-text">
+                    مرحباً بكم في <strong>شاورما عرب</strong>، وجهتكم المثالية للوجبات الشهية في الرمثا. نقدم لكم أشهى المأكولات والأصناف بأجود المكونات الطازجة وألذ النكهات الأصيلة.
+                </p>
+                <p class="about-text">
+                    نؤمن بأن الطعام الجيد يبدأ من أجود المكونات. لذلك نحرص على اختيار كل مكون بعناية لنقدم لكم تجربة طعام لا تُنسى.
+                </p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="about-feature-icon"><i class="fas fa-check-circle"></i></div>
+                        <span>مكونات طازجة يومياً</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon"><i class="fas fa-check-circle"></i></div>
+                        <span>نكهات أصيلة مميزة</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon"><i class="fas fa-check-circle"></i></div>
+                        <span>أسعار منافسة</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon"><i class="fas fa-check-circle"></i></div>
+                        <span>خدمة توصيل سريعة</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="assets/logo.png" alt="شاورما عرب" class="about-img">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="why-section">
+    <div class="container">
+        <h2 class="section-title">لماذا تختارنا؟</h2>
+        <p class="section-subtitle">نقدم لك أكثر من مجرد طعام</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <h3>سرعة في التحضير</h3>
+                <p>نعد طلبك بأسرع وقت ممكن دون التضحية بالجودة</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-award"></i></div>
+                <h3>جودة مضمونة</h3>
+                <p>نستخدم أجود المكونات الطازجة في تحضير كل طبق</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-heart"></i></div>
+                <h3>طعم لا يُقاوم</h3>
+                <p>نكهات أصيلة بلمسة عصرية تجعلك تعود مرة أخرى</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="restaurant-features">
+    <div class="container">
+        <div class="features-stats">
+            <div class="stat-card">
+                <div class="stat-number" data-count="1000">0</div>
+                <div class="stat-label">عميل سعيد</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-count="50">0</div>
+                <div class="stat-label">نوع من الأطباق</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-count="15">0</div>
+                <div class="stat-label">سنوات من الخبرة</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-count="100">0</div>
+                <div class="stat-label">نسبة رضا العملاء %</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Customer Reviews -->
+<section class="reviews-section">
+    <div class="container">
+        <h2 class="section-title">ماذا يقول عملاؤنا</h2>
+        <p class="section-subtitle">تجارب حقيقية من عملائنا الكرام</p>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"من أفضل مطاعم الشاورما في الرمثا! الطعم رائع والخدمة ممتازة."</p>
+                <div class="review-author">
+                    <div class="review-avatar"><i class="fas fa-user"></i></div>
+                    <span>أحمد م.</span>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"البروستد عندهم طازج ومقرمش بشكل مثالي. أنصح الجميع بتجربته!"</p>
+                <div class="review-author">
+                    <div class="review-avatar"><i class="fas fa-user"></i></div>
+                    <span>سارة ع.</span>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">"أسعار ممتازة وجودة عالية. الوجبات مليانة ولذيذة. مفضلنا الأفضل!"</p>
+                <div class="review-author">
+                    <div class="review-avatar"><i class="fas fa-user"></i></div>
+                    <span>خالد ر.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+    <div class="container">
+        <h2 class="section-title">الأسئلة الشائعة</h2>
+        <p class="section-subtitle">إجابات على أكثر الأسئلة تكراراً</p>
+        <div class="faq-list" id="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>ما هي ساعات العمل؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>نعمل يومياً من الساعة 12 ظهراً حتى الثالثة فجراً، بما في ذلك أيام العطل.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>هل يوجد توصيل؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>نعم، نوفر خدمة توصيل في جميع أنحاء الرمثا. يمكنك الطلب عبر واتساب أو التواصل معنا.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>هل يمكن تخصيص الطلب؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>بالتأكيد! يمكنك الطلب حسب ذوقك. كما يمكنك إضافة أو إزالة أي مكونات.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>ما هي طرق الدفع المتاحة؟</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>نقبل الدفع نقداً عند الاستلام وتحويل عبر كليك.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="cta-bg"></div>
+    <div class="cta-overlay"></div>
+    <div class="container cta-content">
+        <h2>جائع؟ لا تنتظر أكثر!</h2>
+        <p>اطلب الآن واستمتع بطعم لا يقاوم</p>
+        <div class="cta-buttons">
+            <a href="#menu" class="hero-cta">
+                <span>تصفح المنيو</span>
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <a href="https://wa.me/962788496859" class="hero-cta cta-whatsapp" target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp"></i>
+                <span>اطلب عبر واتساب</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+    <div class="container">
+        <h2 class="section-title">تواصل معنا</h2>
+        <p class="section-subtitle">نحب أن نسمع منك</p>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                <h3>الهاتف</h3>
+                <a href="tel:0799580888">0799580888</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                <h3>واتساب</h3>
+                <a href="https://wa.me/962788496859" target="_blank" rel="noopener">0788496859</a>
+            </div>
+            <a href="https://www.facebook.com/shawarmaarab" class="contact-card contact-social" target="_blank" rel="noopener">
+                <div class="contact-icon"><i class="fab fa-facebook-f"></i></div>
+                <h3>فيسبوك</h3>
+                <span>تابعنا على فيسبوك</span>
+            </a>
+            <a href="https://www.instagram.com/shawarmaarabjo?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="contact-card contact-social" target="_blank" rel="noopener">
+                <div class="contact-icon"><i class="fab fa-instagram"></i></div>
+                <h3>انستغرام</h3>
+                <span>تابعنا على انستغرام</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-map">
+        <h2 class="section-title">موقعنا</h2>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3375.5!2d35.95!3d32.55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDMzJzAwLjAiTiAzN8KwNTcnMDAuMCJF!5e0!3m2!1sar!2sjo!4v1" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="موقع شاورما عرب"></iframe>
+        </div>
+        <a href="https://maps.app.goo.gl/UMJsSBcAMyKr8Zig9" class="btn-map" target="_blank" rel="noopener">
+            <i class="fas fa-map-marker-alt"></i>
+            فتح الموقع في خرائط Google
+        </a>
+    </div>
+    <div class="footer-content">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="assets/logo.png" alt="شاورما عرب" class="footer-logo">
+                    <h3>شاورما عرب</h3>
+                    <p>أشهى المأكولات العربية في الرمثا</p>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#menu">المنيو</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#contact">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>تواصل معنا</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> <a href="tel:0799580888">0799580888</a></li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/962788496859" target="_blank" rel="noopener">0788496859</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> الرمثا، الأردن</li>
+                    </ul>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/shawarmaarab" target="_blank" rel="noopener" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/shawarmaarabjo?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" aria-label="انستغرام"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/962788496859" target="_blank" rel="noopener" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>&copy; 2026 شاورما عرب. جميع الحقوق محفوظة.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
