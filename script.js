@@ -159,17 +159,9 @@ function renderMenu(filter = 'shawarma') {
         let optionsHTML = '';
         if (item.hasOption) {
             optionsHTML = `
-                <div class="product-options">
-                    <label class="option-radio selected" data-item-id="${item.id}" data-option="حلو">
-                        <input type="radio" name="opt-${item.id}" value="حلو" checked>
-                        <span class="option-dot"></span>
-                        حلو
-                    </label>
-                    <label class="option-radio" data-item-id="${item.id}" data-option="حار">
-                        <input type="radio" name="opt-${item.id}" value="حار">
-                        <span class="option-dot"></span>
-                        حار
-                    </label>
+                <div class="product-options broasted-options" data-item-id="${item.id}">
+                    <div class="option-chip required selected" data-option="حلو">حلو</div>
+                    <div class="option-chip required" data-option="حار">حار</div>
                 </div>`;
         }
         if (item.shawarmaOptions) {
@@ -236,21 +228,30 @@ function renderMenu(filter = 'shawarma') {
         });
     });
 
-    // Shawarma option chips - toggle on/off
+    // Option chips - toggle behavior
     grid.querySelectorAll('.option-chip').forEach(chip => {
         chip.addEventListener('click', () => {
-            chip.classList.toggle('selected');
+            const container = chip.parentElement;
+            if (chip.classList.contains('required')) {
+                // Required chips (broasted/zinger): can't deselect, only switch
+                if (!chip.classList.contains('selected')) {
+                    container.querySelectorAll('.option-chip').forEach(c => c.classList.remove('selected'));
+                    chip.classList.add('selected');
+                }
+            } else {
+                // Optional chips (shawarma): can toggle on/off
+                chip.classList.toggle('selected');
+            }
         });
     });
 }
 
 function getSelectedOption(itemId) {
-    // Check radio options first (broasted etc.)
+    // Check radio options (legacy)
     const radio = document.querySelector(`.option-radio.selected[data-item-id="${itemId}"]`);
     if (radio) return radio.dataset.option;
 
-    // Check shawarma chip options
-    const chips = document.querySelectorAll(`.option-chip.selected`);
+    // Check chip options (broasted required + shawarma optional)
     const container = document.querySelector(`.product-options[data-item-id="${itemId}"]`);
     if (container) {
         const selected = container.querySelectorAll('.option-chip.selected');
@@ -353,9 +354,14 @@ function addToCart(itemId) {
     const qtyEl = document.getElementById('qty-' + itemId);
     if (qtyEl) qtyEl.textContent = '1';
 
-    // Reset shawarma chips
-    const container = document.querySelector(`.product-options[data-item-id="${itemId}"]`);
-    if (container) container.querySelectorAll('.option-chip').forEach(c => c.classList.remove('selected'));
+    // Reset option chips (shawarma + broasted)
+    const optContainer = document.querySelector(`.product-options[data-item-id="${itemId}"]`);
+    if (optContainer) {
+        optContainer.querySelectorAll('.option-chip').forEach(c => c.classList.remove('selected'));
+        // Re-select default for required (broasted) chips
+        const defaultChip = optContainer.querySelector('.option-chip.required');
+        if (defaultChip) defaultChip.classList.add('selected');
+    }
 }
 
 // ─── Cart ───
